@@ -3,7 +3,7 @@ require_once 'IMusica.php';
 
 class Musica implements IMusica {
     protected string $nome;
-    protected int $duracao;
+    protected float $duracao;
     protected string $artista;
     protected string  $album;
     protected bool $status;
@@ -16,22 +16,19 @@ class Musica implements IMusica {
     }
     public function __toString()
     {
-        return "Nome:". $this->nome." | Duracao: ".$this->duracao." | Artista: ".$this->artista." | Album: ".$this->album;
+        return "🎵 Nome: ".$this->nome." | 🕰️ Duração (min:seg): ".str_replace(".", ":", $this->duracao)." | 🎤 Artista: ".$this->artista." | 💿 Álbum: ".$this->album;
+
     }
     public function tocarMusica(){
-        if ($this->status) {
-            return "\nA música já está tocando!.......";
-        }else{
-            return "\nMúsica tocando!.......";
+        if (!$this->status) {            
             $this->status = true;
+            return "\n🎵 Música ".$this->nome." tocando!.......🎵\n";
         }
     }
     public function pausarMusica(){
-        if (!$this->status) {
-            return "\nA música já está pausada!.......";
-        }else{
+        if ($this->status) {
             $this->status = false;
-            return "\nMúsica pausada!.......";
+            return "\n⏸️ A música ".$this->nome. " foi pausada!.......\n";
         }
     }
 
