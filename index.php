@@ -155,14 +155,14 @@ function mudarMusica($arrayMusica,$musicaAtual,$funcao){
     echo $musicaAtual->pausarMusica();
     if ($funcao == "avancar") {
         if ($indiceAtual + 1 >= count($arrayMusica) ) {//se ao ultrapassar a quantidade de músicas, volta para a primeira música
-            echo "\nVoltamos para o inicio da playist:)";
+            echo "\nVoltamos para o inicio da playist 🙂";
             $musicaAtual = $arrayMusica[0];
         }else{
             $musicaAtual = $arrayMusica[$indiceAtual+1];
         }
     }elseif ($funcao == "anterior") {
         if ($indiceAtual - 1 < 0 ) { //se ao n tiver maias nenhuma musica antes, volta para a última música
-            echo "\nVoltamos para a última música da playist:)";
+            echo "\nVoltamos para a última música da playist 🙂";
             $musicaAtual = $arrayMusica[count($arrayMusica)-1];
         }else{
             $musicaAtual = $arrayMusica[$indiceAtual-1];
